@@ -7,7 +7,7 @@ It is powerfully designed for adding additional components to the system, or to 
 
 Presenters have global plugins that are configured in the system. They are declared as a setting like so:
   
-    Voom::Presenters::Settings.configure do |config|
+    Coprl::Presenters::Settings.configure do |config|
       config.presenters.plugins.push(:foo)
     end 
 
@@ -17,7 +17,7 @@ A global plugin is available to all presenters.
 
 A presenters can define that it uses a plugin like so: 
 
-    Voom::Presenters.define(:index, namespace: :plugins) do
+    Coprl::Presenters.define(:index, namespace: :plugins) do
       plugin :foo
     end
 
@@ -26,10 +26,10 @@ A local plugin is available only to the presenter that it is defined in.
 
 ## Creating Plugins
 
-The skeleton for a plugin starts with an empty module in a file stored in `voom/presenters/plugins` somewhere in ruby's load path 
+The skeleton for a plugin starts with an empty module in a file stored in `coprl/presenters/plugins` somewhere in ruby's load path 
 (typically in a gemfile or in the lib directory of an framework app, like Rails):
 
-    module Voom
+    module Coprl
       module Presenters
         module Plugins
           module Foo
@@ -54,9 +54,9 @@ presenter object model tree.
 
 A presenter component derives from `DSL::Components::Base` or if it needs to handle events  `DSL::Components::EventBase`
 
-      require 'voom/presenters/dsl/components/base'
+      require 'coprl/presenters/dsl/components/base'
       
-      module Voom
+      module Coprl
         module Presenters
           module Plugins
             module Foo
@@ -83,25 +83,25 @@ To add helpers to the POM define the module `DSLHelpers`
 ### Event Actions
 A plugin can extend the set of event actions that are available. 
 When an event fires in the client, like mouse click, a set of actions are executed. A plugin can provide custom
-actions. This examnple adds a bar action that can be bound to an event.
+actions. This examnple adds a actionJs actionJs that can be bound to an event.
 
     module DSLEventActions
-      def bar(text, **attributes, &block)
+      def actionJs(text, **attributes, &block)
         self << Foo::Action.new(text: text, parent: self, **attributes, &block)
       end
     end
     
-Example action class:
+Example actionJs class:
 
-    require 'voom/presenters/dsl/components/actions/base'
+    require 'coprl/presenters/dsl/components/actions/base'
     
-    module Voom
+    module Coprl
       module Presenters
         module Plugins
           module Foo
               class Action < DSL::Components::Actions::Base
                 def initialize(**attribs_, &block)
-                  super(type: :bar, **attribs_, &block)
+                  super(type: :actionJs, **attribs_, &block)
                 end
             end
           end
@@ -142,29 +142,29 @@ Example template:
 
 ### Event Action Data
 
-An action from the Presenter Object Model (POM) is sent to a ruby method during template expansion. 
-You are able to then setup any data that you want passed to your action javascript method.
-It expects you will return an array with a type that matches your event action presenter type. The rest is up to you.
+An actionJs from the Presenter Object Model (POM) is sent to a ruby method during template expansion. 
+You are able to then setup any data that you want passed to your actionJs javascript method.
+It expects you will return an array with a type that matches your event actionJs presenter type. The rest is up to you.
 
 
     module WebClientActions
-      def action_data_bar(action, _parent_id, *)
-        # Type, URL, Options, Params (passed into javascript event/action classes)
-        [action.type, action.url, action.options.to_h, action.attributes.to_h]
+      def action_data_bar(actionJs, _parent_id, *)
+        # Type, URL, Options, Params (passed into javascript event/actionJs classes)
+        [actionJs.type, actionJs.url, actionJs.options.to_h, actionJs.attributes.to_h]
       end
     end
     
 Example Javascript method (typically rendered by a template triggered by the render_foo method above):
 
     <script>
-      function bar(_options, params, _event) {
+      function actionJs(_options, params, _event) {
         // Reload iFrame: https://stackoverflow.com/questions/86428/what-s-the-best-way-to-reload-refresh-an-iframe
         document.getElementById('random_fact').src += '';
-        return {action: 'bar', content: {data: params.text}, statusCode: 200};
+        return {actionJs: 'actionJs', content: {data: params.text}, statusCode: 200};
       }
     </script>
 
-Event action WebClient methods must return a Javascript Object with the properties `action`, `content` and `statusCode`.
+Event actionJs WebClient methods must return a Javascript Object with the properties `actionJs`, `content` and `statusCode`.
 
 
 ## WebClient Javascript Interface

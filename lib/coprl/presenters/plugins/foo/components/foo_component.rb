@@ -1,10 +1,10 @@
-require 'voom/presenters/dsl/components/event_base'
+require 'coprl/presenters/dsl/components/event_base'
 
-module Voom
+module Coprl
   module Presenters
     module Plugins
       module Foo
-        class Component < DSL::Components::EventBase
+        class FooComponent < DSL::Components::EventBase
           attr_reader :random_fact
           def initialize(random_fact, **attribs_, &block)
             @random_fact = random_fact
