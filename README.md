@@ -1,4 +1,9 @@
-# Presenter Plugins
+# COPRL Presenter Plugins
+
+This is a sample [CORPL] plugin.
+It was generated using the COPRL command:
+    
+    coprl generate plugin foo
 
 Presenter plugins allows extension and modification of the DSL and WebClient.
 It is powerfully designed for adding additional components to the system, or to change the behavior/look feel/capabilities of existing components.
@@ -251,3 +256,7 @@ Sample callback class:
         }
       }
     }
+
+
+CORPL
+[CORPL]:https://github.com/coprl/coprl
