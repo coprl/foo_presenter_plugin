@@ -193,7 +193,7 @@ Container data in the WebClient is collected and submitted using the following s
 In your element markup include the `v-input` class on an DOM element.
 
 You can see the container calling code here:
-https://github.com/rx/presenters/blob/master/views/mdc/assets/js/components/base-container.js
+https://github.com/coprl/presenters/blob/master/views/mdc/assets/js/components/base-container.js
 
 If you add the v-plugin class to the DOM element along with a data-plugin-callback dataset that contains a string
 with the class name to proxy the plugin events to.
