@@ -33,9 +33,7 @@ jobs:
             @semantic-release/git
             @semantic-release/changelog
             @semantic-release/github
-            ["semantic-release-rubygem", {
-                "gemPublish": false
-            }],
+            semantic-release-rubygem
           dry_run: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
