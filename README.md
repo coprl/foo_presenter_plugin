@@ -1,4 +1,4 @@
-# Presenter Plugins
+# COPRL Presenter Plugin Sample
 
 Presenter plugins allows extension and modification of the DSL and WebClient.
 It is powerfully designed for adding additional components to the system, or to change the behavior/look feel/capabilities of existing components.
