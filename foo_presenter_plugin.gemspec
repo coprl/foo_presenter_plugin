@@ -6,10 +6,9 @@ Gem::Specification.new do |spec|
   spec.name          = "foo_presenter_plugin"
   spec.version = FooPresentersPlugin::Version::VERSION
   spec.authors       = ["Russell Edens"]
-  spec.email         = ["rx@voomify.com"]
-
-  spec.summary       = %q{Simplest example of a presenter plugin.}
-  spec.homepage      = 'http://github.com/rx/foo_presenters_plugin'
+  spec.email         = ["russell@voomify.com"]
+  spec.summary       = %q{foo presenter plugin.}
+  spec.homepage      = 'http://github.com/Rx/foo_presenters_plugin'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
@@ -17,6 +16,6 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "rake", "~> 12.3"
+  spec.add_development_dependency "bundler", "~> 1.13.6"
+  spec.add_development_dependency "rake", "~> 10.0"
 end
