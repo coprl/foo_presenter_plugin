@@ -4,16 +4,9 @@ require 'foo_presenter_plugin/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "foo_presenter_plugin"
-<<<<<<< HEAD
-  spec.version       = '0.0.1'
-  spec.authors       = ["Rx"]
-  spec.email         = ["russell@russelledens.net"]
-=======
   spec.version = FooPresentersPlugin::Version::VERSION
   spec.authors       = ["Russell Edens"]
-  spec.email         = ["rx@voomify.com"]
->>>>>>> master
-
+  spec.email         = ["russell@voomify.com"]
   spec.summary       = %q{foo presenter plugin.}
   spec.homepage      = 'http://github.com/Rx/foo_presenters_plugin'
   spec.license       = "MIT"
