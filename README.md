@@ -88,15 +88,15 @@ To add helpers to the POM define the module `DSLHelpers`
 ### Event Actions
 A plugin can extend the set of event actions that are available. 
 When an event fires in the client, like mouse click, a set of actions are executed. A plugin can provide custom
-actions. This examnple adds a actionJs actionJs that can be bound to an event.
+actions. This examnple adds a action_foo that can be bound to an event.
 
     module DSLEventActions
-      def actionJs(text, **attributes, &block)
+      def action_foo(text, **attributes, &block)
         self << Foo::Action.new(text: text, parent: self, **attributes, &block)
       end
     end
     
-Example actionJs class:
+Example action_foo class:
 
     require 'coprl/presenters/dsl/components/actions/base'
     
@@ -106,7 +106,7 @@ Example actionJs class:
           module Foo
               class Action < DSL::Components::Actions::Base
                 def initialize(**attribs_, &block)
-                  super(type: :actionJs, **attribs_, &block)
+                  super(type: :action_foo, **attribs_, &block)
                 end
             end
           end
@@ -147,29 +147,29 @@ Example template:
 
 ### Event Action Data
 
-An actionJs from the Presenter Object Model (POM) is sent to a ruby method during template expansion. 
-You are able to then setup any data that you want passed to your actionJs javascript method.
-It expects you will return an array with a type that matches your event actionJs presenter type. The rest is up to you.
+An action_foo from the Presenter Object Model (POM) is sent to a ruby method during template expansion. 
+You are able to then setup any data that you want passed to your action_foo javascript method.
+It expects you will return an array with a type that matches your event action_foo presenter type. The rest is up to you.
 
 
     module WebClientActions
-      def action_data_bar(actionJs, _parent_id, *)
-        # Type, URL, Options, Params (passed into javascript event/actionJs classes)
-        [actionJs.type, actionJs.url, actionJs.options.to_h, actionJs.attributes.to_h]
+      def action_data_foo_action(action, _parent_id, *)
+        # Type, URL, Options, Params (passed into javascript event/action_foo classes)
+        [action.type, action.url, action.options.to_h, action.attributes.to_h]
       end
     end
     
 Example Javascript method (typically rendered by a template triggered by the render_foo method above):
 
     <script>
-      function actionJs(_options, params, _event) {
+      function action_foo(_options, params, _event) {
         // Reload iFrame: https://stackoverflow.com/questions/86428/what-s-the-best-way-to-reload-refresh-an-iframe
         document.getElementById('random_fact').src += '';
-        return {actionJs: 'actionJs', content: {data: params.text}, statusCode: 200};
+        return {action: 'action_foo', content: {data: params.text}, statusCode: 200};
       }
     </script>
 
-Event actionJs WebClient methods must return a Javascript Object with the properties `actionJs`, `content` and `statusCode`.
+Event action_foo WebClient methods must return a Javascript Object with the properties `action`, `content` and `statusCode`.
 
 
 ## WebClient Javascript Interface
