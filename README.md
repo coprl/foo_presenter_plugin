@@ -8,6 +8,8 @@ It was generated using the COPRL command:
 Presenter plugins allows extension and modification of the DSL and WebClient.
 It is powerfully designed for adding additional components to the system, or to change the behavior/look feel/capabilities of existing components.
 
+> Note: This version is compatible with COPRL 3.0 only
+
 ## Global Plugins
 
 Presenters have global plugins that are configured in the system. They are declared as a setting like so:
