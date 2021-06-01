@@ -1,4 +1,4 @@
-# COPRL Presenter Plugins
+# COPRL Presenter Plugin Sample
 
 This is a sample [CORPL] plugin.
 It was generated using the COPRL command:
