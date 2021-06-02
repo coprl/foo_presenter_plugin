@@ -6,7 +6,7 @@ module Coprl
         module DSLHelpers
           # Add your methods here
           def random_fact
-            "http://en.wikipedia.org/wiki/Special:Randompage"
+            "https://en.wikipedia.org/wiki/Special:Randompage"
           end
         end
       end
