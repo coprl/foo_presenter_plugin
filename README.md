@@ -260,5 +260,4 @@ Sample callback class:
     }
 
 
-CORPL
 [CORPL]:https://github.com/coprl/coprl
