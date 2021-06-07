@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version = FooPresentersPlugin::Version::VERSION
   spec.authors       = ["Russell Edens"]
   spec.email         = ["russell@voomify.com"]
-  spec.summary       = %q{foo presenter plugin.}
+  spec.summary       = %q{A sample COPRL presenters plugin}
   spec.homepage      = 'http://github.com/Rx/foo_presenters_plugin'
   spec.license       = "MIT"
 
