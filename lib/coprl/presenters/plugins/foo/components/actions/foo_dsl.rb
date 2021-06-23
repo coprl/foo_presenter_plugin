@@ -1,4 +1,4 @@
-require_relative 'Foo_action'
+require_relative 'foo_action'
 
 module Coprl
   module Presenters
